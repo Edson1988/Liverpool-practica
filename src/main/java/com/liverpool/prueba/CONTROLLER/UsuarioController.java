@@ -83,10 +83,10 @@ public class UsuarioController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+	public ResponseEntity<String> eliminar(@PathVariable Long id) {
 		try {
 			usuarioService.eliminar(id);
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.ok("Usuario Eliminado");
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error al eliminar el usuario");
 		}
